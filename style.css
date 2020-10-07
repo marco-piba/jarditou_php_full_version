@@ -1,0 +1,60 @@
+.container-fluid {position:relative;}
+
+
+/*****page confirmation suppression ********/
+.confirmSuppressPage {
+position:absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right:0;
+background-color: rgba(0, 0, 0,0.7);
+transform: translateX(100%);
+display: flex;
+justify-content: center;
+align-items:center ;
+transition: all 1s ease;
+}
+
+.showPage {transform: translateX(0%);}
+
+.confirmSuppressContainer {
+min-height: 50vh ;
+max-width: 80vw;
+background-color:rgb(244, 245, 233);
+border-radius: 7px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+text-align: center;
+padding: 2em 1em;
+
+}
+
+.confirmSuppressContainer .imgSuppr {
+border-radius: 10px;
+overflow: hidden;}
+
+.confirmSuppressContainer h2 {
+font-size: 4em;
+text-transform: capitalize;}
+
+.confirmSuppressContainer .QSupp {
+font-weight: bold;
+font-size: 2em;
+margin-bottom: 1em;}
+
+/*****fin de page confirmation suppression ********/
+
+
+/***page contact***/
+
+.messageError1,.messageError2,.messageError3,.messageError4,.messageError5,.messageError6 ,.messageError7,.messageError8 ,.messageForm {display:none;padding: 0.5em;border:2px solid red;}
+
+
+.SeeMessageError {display:inline-block ; color: red;margin-top: 0.25em;}
+
+/**fin de page contact***/
+
+
