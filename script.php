@@ -75,9 +75,11 @@
             
           }
         
-       if ($Err ==''){ header('Location:contact.php?msg=1');}
+       if ($Err ==''){ header('Location:contact.php?msg=1');
+        exit;}
 
-          else{header('Location:contact.php?msg=2');}
+          else{header('Location:contact.php?msg=2');
+            exit;}
      
       }
 

@@ -129,8 +129,6 @@
         <a href="delete_form.php?pro_id=<?=$produit->pro_id?>" target="_blank"><input type="button" value="Supprimer" class="btn btn-danger btn-lg mb-3" ></a>
         <button type='button' onclick=toggleSup() class="btn btn-warning btn-lg mb-3">Annuler</button>
        </div>
-
-      
       <div>
     </div>
           
@@ -139,7 +137,7 @@
  
    <!-----bootstrap files---->
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-   <script src='app.js'></script>
+   <script src='produits_ajout.js'></script>
   </body>
   </html>
 

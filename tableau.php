@@ -31,15 +31,26 @@
       <th scope="col">Bloqué</th>
     </tr>
   </thead>
-  <tbody>
-    <?php include('tab1.php');?>
+  <tbody id="ajaxDiv">
+    <?php include('tab2.php');?>
   </tbody>
  </table>
-</div>
+ <!----recuperer la valeur php $page pr connaitre la derniere page du tableau ------>
+ <input type=hidden id=lastPage value=<?=$nbreDePage; ?>>
+
+<!-- /*Partie "Liens"
+/* Notez que les liens ainsi mis vont bien faire rester sur le même script en passant
+ le numéro de page en paramètre-->
+
+    <ul class="pager list-group d-flex flex-row align-items-center justify-content-between ">
+      <li class="list-group-item list-group-item-action list-group-item-success mr-3 p-2 text-center precedentBtn"><a href="?page=<?php echo $page - 1; ?>" title="Précédent" class="text-decoration-none text-dark">Page précédente</a></li>
+      <li class="list-group-item list-group-item-action list-group-item-success p-2 text-center suivantBtn"><a href="?page=<?php echo $page + 1; ?>" title="Suivant" class="text-decoration-none text-dark">Page suivante</a></li>
+    </ul>
+ </div>
 
                <!-- bouton pour ajouter un produit-->
-       <div class="col-12 col-md-4 mx-auto d-flex justify-content-center align-items-center">    
-       <a href="add_form.php" target="_blank"><input type="button" value="Ajouter un Produit" class="my-3 btn btn-success btn-lg my-3"></a>
+       <div class="col-12">    
+       <a href="add_form.php" target="_blank" ><input type="button" value="Ajouter un Produit" class="my-3 btn btn-info btn-lg w-100"></a>
        </div>
            
       </main>
@@ -52,5 +63,6 @@
       <!-----bootstrap files---->
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
       </body>
+      <script src='tableau.js'></script>
       </html>
 

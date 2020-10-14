@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  Bootstrap css file  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
 
 <div class="container-fluid">
- <form action='add_script.php' method ='post'>
-   <div class="bg-secondary rounded bg-gradient col-2 col-lg-3 border-right border-light mx-auto text-center" id='photoAdd'>
-    <label for="inputPhoto" class='mt-3 mb-1 text-light' >ENTRER LE LIEN POUR LA PHOTO</label></br>
-    <input type="text" id='inputPhoto' name="inputPhoto" class='my-3'></br>
-    <button class='btn btn-success rounded my-3' id="btnImage" type='button' onclick=addphoto()>cliquer ici pour ajouter une photo</button>
-  </div>
+ <form action='add_script.php' method ='post' enctype="multipart/form-data" >
+ <div class="file-input my-3 d-flex align-items-center" id='photoAdd'>
+  <input type="file" id="getfile" name="fichier">
+  <label for="getfile">Ajouter une photo</label>
+  <div class="photoLink mx-4">la photo</div>
+ </div>
+
     <div class="mb-3">
           <label for="reference" class="form-label">Reference:</label>
           <input type="text" class="form-control" name="reference" aria-describedby="reference du produit" value ="">
@@ -56,20 +58,18 @@
           <input type="date" id="dateAjout" name="dateAjout" class="form-control"  value="">
     </div>
     <div class="col-12 col-md-4 mx-auto d-flex justify-content-center align-items-center">
+    <a href="tableau.php" target="_blank"><input type="button" value="Annuler" class="btn btn-secondary btn-lg mb-3 mr-3"></a>
     <button class="btn btn-danger btn-lg mb-3" type="submit">Enregistrer le produit</button>
    </div>
  </form>
 
 <!--Footer-->
 <?php
-    include('footer.php');
-    ?>
-
-    <!-----------end of Footer---------------->
-
+    include("footer.php")?>
+<!-----------end of Footer---------------->
 </div>
    <!-----bootstrap files---->
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-  <script src="app.js"></script>
+   <script src="add_form.js"></script>
   </body>
   </html>

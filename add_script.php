@@ -8,8 +8,7 @@
         <?php    
         require "connexion_bdd.php"; // Inclusion de notrebibliothèque de fonctions
     
-        
-        $image= $_POST['inputPhoto'];
+        $image=$_FILES['fichier'];
         var_dump($image);
         $reference= $_POST['reference'];
         $categorie= $_POST['categorie'];
@@ -22,6 +21,34 @@
         $dateAjout= $_POST['dateAjout'];
         
 
+        // On met les types autorisés dans un tableau (ici pour une image)
+$aMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff");
+
+// On extrait le type du fichier via l'extension FILE_INFO 
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+var_dump($finfo);
+$mimetype = finfo_file($finfo,$image["tmp_name"]);
+var_dump($mimetype);
+finfo_close($finfo);
+
+
+if (in_array($mimetype,$aMimeTypes))
+{
+    /* Le type est parmi ceux autorisés, donc OK, on va pouvoir 
+       déplacer et renommer le fichier */
+      /* var_dump('photo\'$image["name"]);*/
+       $chaine= 'photo\\'.$_FILES["fichier"]["name"];
+       var_dump($chaine);
+   
+     move_uploaded_file($image["tmp_name"],$chaine);
+
+} 
+else 
+{
+   // Le type n'est pas autorisé, donc ERREUR
+   echo "Type de fichier non autorisé";    
+   exit;
+}    
 
         try{
                 $db = connexionBase(); // Appel de la fonction deconnexion 
@@ -31,7 +58,10 @@
         (pro_cat_id,pro_ref,pro_libelle,pro_description,pro_prix,pro_stock,pro_couleur,pro_photo,pro_d_ajout,pro_bloque)
         VALUES(:categorie,:reference,:libelle,:description,:prix,:stock,:couleur,:photo,:dateAjout,:produitBloque)");
 
-        $requete->bindParam(':photo',$image);
+        /**Acceder au fichier photo et recuperer la photo****/
+        $chaineImg ='.\\'.$chaine;
+
+        $requete->bindParam(':photo',$chaineImg);
         $requete->bindParam(':categorie',$categorie);
         $requete->bindParam(':reference',$reference);
         $requete->bindParam(':libelle',$libelle);
@@ -45,7 +75,8 @@
       
 
                 //On renvoie l'utilisateur vers la page 
-                header("Location:tableau.php");
+             header("Location:tableau.php");
+             exit;
             }
             catch(PDOException $e){
                 echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
