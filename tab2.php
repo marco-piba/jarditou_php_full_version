@@ -76,7 +76,6 @@ $requete = $db->prepare($requete);
           }
         
 
-
           /*********determiner le nbre de page */
         $query="SELECT COUNT(cat_id = pro_cat_id)FROM produits , categories WHERE cat_id = pro_cat_id";
          $query = $db->prepare($query);
