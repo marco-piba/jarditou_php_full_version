@@ -62,7 +62,7 @@ $requete = $db->prepare($requete);
 
             echo '
             <tr class="produit">
-              <th scope="row" ><img src="'.$row->pro_photo.'" class="img-thumbnail img-fluid w-auto " alt="barbecue '.$row->pro_libelle.'"></th>
+              <th scope="row" ><img src="photo/'.$row->pro_id.'.'.$row->pro_photo.'" class="img-thumbnail img-fluid w-auto " alt="barbecue '.$row->pro_libelle.'"></th>
               <td><p>'.$row->pro_id.'</p></td>
               <td><p>'.$row->cat_nom.'</p></td>
               <td><p><a href="produits_ajout.php?pro_id='.$row->pro_id.'" title='.$row->pro_libelle.'>'.$row->pro_libelle.'</a></p></td>

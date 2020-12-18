@@ -45,7 +45,7 @@
   <form action="add_script.php" method="post" id="form1">
   <div class="bg-light bg-gradient  row border-top border-light gx-0">
   <div class="bg-warning bg-gradient col-2 col-lg-3 border-right border-light mx-auto">
-    <img src="<?= $produit->pro_photo ?>"class="img-fluid" id="image" alt="<?= $produit->pro_libelle ?>">
+    <img src="<?="photo/".$produit->pro_id.".".$produit->pro_photo;?>"class="img-fluid" id="image" alt="<?= $produit->pro_libelle ?>">
   </div>
     <div class="mb-3">
           <label for="reference" class="form-label">Reference:</label>
@@ -119,7 +119,7 @@
      <div class='confirmSuppressPage'>
      <div class='confirmSuppressContainer'>
        <div class="bg-warning bg-gradient col-2 col-lg-3    border-right border-light mx-auto imgSuppr">
-        <img src="<?= $produit->pro_photo ?>"class="img-fluid" id="image" alt="<?= $produit->pro_libelle ?>">
+        <img src="<?="photo/".$produit->pro_id.".".$produit->pro_photo;?>"class="img-fluid" id="image" alt="<?= $produit->pro_libelle ?>">
        </div>
        <h2><?= $produit->pro_libelle ?></h2>
        <div class='QSupp'>

@@ -110,7 +110,7 @@ if(isset($_GET['msg'])){
     </main>
     <!-----------end of  main---------------->
     <!-----------Footer---------------->
-    <?php include('footer.php');?>
+    <?php include("footer.php");?>
 </div>
     <!-----------end of Footer---------------->
 
