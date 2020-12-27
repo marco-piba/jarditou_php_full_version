@@ -71,6 +71,21 @@ $req->execute(array(
 
     else{
 
+  /***Envoi de mail pour verification****/
+
+  $dest = $nouvmail;
+  $sujet = "Confirmation d'inscription";
+  $corp = "Bienvenue sur Jarditou ! Tu peux y acheter des tomates cerises pour l'apéro et une brouette pour les transporter. Sors vite ton American Express !";
+  $headers = array("From" => "contact@jarditou.com", "Reply-To" => "commercial@jarditou.com", "X-Mailer" => "PHP/".phpversion() );
+  if (mail($dest, $sujet, $corp, $headers)) {
+    echo "Email envoyé avec succès à $dest ...";
+  } else {
+    echo "Échec de l'envoi de l'email...";
+  }
+
+  /***fin Envoi de mail pour verification****/
+
+
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $requete=$db->prepare(
                     "INSERT INTO users
@@ -86,8 +101,8 @@ $req->execute(array(
         $requete->bindParam(":actueldate",$actueldate); 
         $requete->execute();
 
-        header('Location:register_page.php?msg=1');
-        exit;
+   header('Location:register_page.php?msg=1');
+   exit;
         }
 
 }

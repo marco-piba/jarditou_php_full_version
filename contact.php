@@ -6,6 +6,10 @@
     <!--  Bootstrap css file  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/fontawesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <title>Document</title>
 </head>
@@ -22,7 +26,7 @@
     <!-----------main---------------->
     <main>
      <form class="row gx-0 formSub " action="script.php" method="post">
-        <div class="col-12 py-2">* Ces zones sont obligatoires</div>
+        <div class="col-12 py-2 text-danger">* Ces zones sont obligatoires</div>
         <h2 class="col-12">Vos Coordonnées</h2>
        
 <!-----------message erreur si formulaire pas valide---------------->
@@ -101,12 +105,16 @@ if(isset($_GET['msg'])){
       <div class="row gx-0">
       <div class="col-12 col-md-4 
       " id="formSub">
-        <button class="btn btn-secondary btn-lg mb-3 " type="submit" name="valider">Envoyer</button>
-        <button class="btn btn-secondary btn-lg mb-3" type="reset">Annuler</button>
+        <button class="btn  btn-lg mb-3 btncontact" type="submit" name="valider">Envoyer</button>
+        <button class="btn btn-lg mb-3 btncontact" type="reset">Annuler</button>
        </div>
       </div>
        
      </form>
+
+       <!--shopping-cart-->
+     <?php include('shopping_cart.php');?>
+      <!--end shopping-cart-->
     </main>
     <!-----------end of  main---------------->
     <!-----------Footer---------------->
@@ -117,6 +125,8 @@ if(isset($_GET['msg'])){
    <!-----bootstrap files---->
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
   <script src="app2.js"></script>
+  <script src='e_commerce.js'></script>
+  <script src='carte.js'></script>
   </body>
   </html>
 

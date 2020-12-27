@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,23 +34,18 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active " aria-current="page" href="">Accueil</a>
+                <a class="nav-link active " aria-current="page" href="register_page.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">Tableau</a>
+                <a class="nav-link" href="register_page.php">Tableau</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="">Contact</a>
+                <a class="nav-link " href="register_page.php">Contact</a>
               </li>
             </ul>
-            <div class='d-flex'>
-             <p class="mr-3 text-danger my-auto">Pour continuer votre navigation sur notre site , connectez-vous </p>
-             <a href="register_page.php"><input type="button" value="Se connecter" class="btn btn-success btn-md  mr-3"></a>
-            </div>
-
             <form class="d-flex formSearch">
-              <input class="form-control mr-2" type="search" placeholder="Trier par" name="searchInput" aria-label="Search">
-              <button class="btn btn-outline-success btnSearch" type="submit">Rechercher</button>
+              <input class="form-control mr-2" type="search" placeholder="Search" name="searchInput" aria-label="Search">
+              <button class="btn btn-outline-success btnSearch" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -83,8 +79,50 @@
 
 
 <!----------- Footer---------------->
-<?php include("footer.php");?>
+<?php include('footer.php');?>
 <!-----------end of Footer---------------->
+
+
+ <!--connexion des utilisateurs -->
+<div class="overlaycont pt-5 row">
+
+<!-----------message erreur si formulaire pas valide---------------->
+        <?php
+if(isset($_GET['msg'])){
+  if($_GET['msg'] == 1) {
+    echo "<p class='text-light bg-success text-center text-success py-2 zindex col-12'>Votre inscription a été enregistrée.Vous pouvez désormais vous connecter à votre compte</p>";
+    }
+    else if ($_GET['msg'] == 2){echo "<p class='text-light bg-danger text-center text-danger py-2 zindex col-12'>Erreur dans votre inscription</p>";}
+    else if ($_GET['msg'] == 3) {echo "<p class='text-light bg-info text-center text-danger py-2 zindex col-12'>Ce pseudo est déjà utilisé .</p>";}
+    else {echo "<p class='text-light bg-danger text-center text-danger py-2 zindex col-12'>Mauvais identifiant ou mot de passe !</p>";}
+}
+
+?>
+<!-----------message erreur fin ---------------->
+
+<form class="logContainer col-10 col-md-5 mt-5 shadow" action='account_connect.php' method='post'>
+  <h2 class="mb-3 font-weight-bold">Déja un compte ?</h2>
+  <div class="mb-3">
+    <label for="Custpseudo1" class="form-label">Votre pseudo<span class="text-danger"> *</span></label>
+    <input type="text" class="form-control" id="Custpseudo1" name="Custpseudo1" value="<?php if(isset($_COOKIE['remembermeu'])){echo $_COOKIE['remembermeu'];} ;?>" required>
+  </div>
+  <div class="mb-3">
+    <label for="Password2" class="form-label">Mot de passe<span class="text-danger"> *</label>
+    <input type="password" class="form-control" id="Password2" name="Password2" value="<?php if(isset($_COOKIE['remembermep'])){echo $_COOKIE['remembermep'];} ;?>">
+  </div>
+  <div class='d-flex align-items-center justify-content-center flex-column'>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="remember2" name="remember2">
+    <label class="form-check-label" for="remember2">Se souvenir de moi</label>
+  </div>
+  
+  <button type="submit" class="btn btn-primary btnInscription" name="connecter">Se connecter</button>
+  <div id="emailHelp" class="form-text mt-2">Vos informations resteront confidentielles</div>
+  </div>
+</form>
+</div>
+
+ <!--Fin connexion des utilisateurs-->
 
 
 </div>

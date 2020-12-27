@@ -6,6 +6,10 @@
     <!--  Bootstrap css file  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/fontawesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -79,7 +83,7 @@
 
 
  <!--connexion des utilisateurs -->
-<div class="overlaycont align-content-start">
+<div class="overlaycont align-content-start row">
 
 <!-----------message erreur si formulaire pas valide---------------->
         <?php
@@ -95,33 +99,29 @@ if(isset($_GET['msg'])){
 ?>
 <!-----------message erreur fin ---------------->
 
-<form class="logContainer " action='users_connexion.php' method='post'>
-  <h2 class="mb-3">Nouveau client ?</h2>
-  <div class="d-flex justify-content-between">
-   <div class="mb-3 mr-2">
+<form class="logContainer col-10 col-md-5 mt-2 shadow" action='users_connexion.php' method='post'>
+  <h2 class="font-weight-bold">Nouveau client ?</h2>
+  <div id="emailHelp" class="form-text mb-3 f1">Vos informations resteront confidentielles</div>
+  <div class="d-flex">
+   <div class="mb-3 mr-3 col-5">
     <label for="Customernom" class="form-label">Votre nom<span class="text-danger"> *</span></label>
     <input type="text" class="form-control" id="Customernom" name="Customernom" value="" required>
-    <div class="valid-feedback">
-      Looks good!</div>
    </div>
-   <div class="mb-3">
+   <div class="mb-3 col-5">
     <label for="Customerpre" class="form-label">Votre prénom<span class="text-danger"> *</span></label>
     <input type="text" class="form-control" id="Customerpre" name="Customerpre" value="" required>
-    <div class="valid-feedback">
-      Looks good!</div>
    </div>
-  </div>
-   <div class="mb-3">
+   </div>
+  <div class="d-flex">
+   <div class="mb-3 mr-3 col-5">
     <label for="Custpseudo" class="form-label">Choisissez un pseudo<span class="text-danger"> *</span></label>
     <input type="text" class="form-control" id="Custpseudo" name="Custpseudo" value="" required>
-    <div class="valid-feedback">
-      Looks good!</div>
    </div>
-  <div class="mb-3">
+  <div class="mb-3 col-5">
     <label for="Email0" class="form-label">Votre adresse de messagerie<span class="text-danger"> *</span></label>
     <input type="email" class="form-control" id="Email0" name="Email0" aria-describedby="emailHelp">
   </div>
-  <div class="d-flex justify-content-between">
+  </div>
    <div class="mb-3 mr-2">
     <label for="Password0" class="form-label">Mot de passe<span class="text-danger"> *</span></label>
     <input type="password" class="form-control" id="Password0" name="Password0">
@@ -130,35 +130,17 @@ if(isset($_GET['msg'])){
     <label for="Password1" class="form-label">Confirmer votre mot de passe<span class="text-danger"> *</span></label>
     <input type="password" class="form-control" id="Password1" name="Password1">
    </div>
-  </div>
+  
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="Check1" name="Check1">
     <label class="form-check-label" for="Check1">Se souvenir de moi</label>
   </div>
-  <button type="submit" class="btn btn-primary" name="inscription">s'inscrire</button>
-  <div id="emailHelp" class="form-text mt-2">Vos informations resteront confidentielles</div>
+  <div class="d-flex justify-content-center align-items-center flex-column">
+  <button type="submit" class="btn btn-primary btnInscription" name="inscription">S'inscrire</button>
+  <p class="mt-3">Déjà inscrit? <a href="client_connexion.php">Connectez-vous ici</a></p>
+</div>
 </form>
 
-
-<form class="logContainer" action='account_connect.php' method='post'>
-  <h2 class="mb-3">Déja un compte ?</h2>
-  <div class="mb-3">
-    <label for="Custpseudo1" class="form-label">Votre pseudo<span class="text-danger"> *</span></label>
-    <input type="text" class="form-control" id="Custpseudo1" name="Custpseudo1" value="" required>
-    <div class="valid-feedback">
-      Looks good!</div>
-   </div>
-  <div class="mb-3">
-    <label for="Password2" class="form-label">Mot de passe<span class="text-danger"> *</label>
-    <input type="password" class="form-control" id="Password2" name="Password2">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="Check2" name="check2">
-    <label class="form-check-label" for="check2">Se souvenir de moi</label>
-  </div>
-  <button type="submit" class="btn btn-primary" name="connecter">Se connecter</button>
-  <div id="emailHelp" class="form-text mt-2">Vos informations resteront confidentielles</div>
-</form>
 
 </div>
 
@@ -169,7 +151,6 @@ if(isset($_GET['msg'])){
 
 <!-----bootstrap files---->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
- <script src="register.js"></script>
 </body>
 </html>
 
